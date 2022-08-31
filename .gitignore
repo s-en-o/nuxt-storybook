@@ -91,4 +91,5 @@ sw.*
 
 # Storybook
 .nuxt-storybook
+!.nuxt-storybook/storybook/preview.js
 storybook-static

@@ -5,4 +5,5 @@ Install dependencies by running `yarn`.
 ## Command
 
 Nuxt: `yarn dev`
+
 Storybook: `yarn sb`
