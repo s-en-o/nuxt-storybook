@@ -6,7 +6,11 @@
             <span class="mobile-home-link"
                 ><NuxtLink to="/">Home</NuxtLink></span
             >
-            <button class="mobile-menu-toggle">
+            <button
+                class="mobile-menu-toggle"
+                :class="{ 'is-clicked': mobileNavStatus }"
+                @click="onClickMenu"
+            >
                 <span>Menu</span>
             </button>
         </div>
@@ -32,6 +36,8 @@
 </template>
 
 <script>
+import { ref } from '@nuxtjs/composition-api';
+
 export default {
     props: {
         navLinks: {
@@ -39,28 +45,29 @@ export default {
             required: true,
         },
     },
-    data() {
+    head() {
         return {
-            // navLinks: [
-            //     {
-            //         id: 2,
-            //         name: 'about',
-            //         link: '/',
-            //         hidden: false,
-            //     },
-            //     {
-            //         id: 3,
-            //         name: 'contact',
-            //         link: '/',
-            //         hidden: false,
-            //     },
-            //     {
-            //         id: 4,
-            //         name: 'blog',
-            //         link: '/',
-            //         hidden: false,
-            //     },
-            // ],
+            bodyAttrs: {
+                class: `${this.bodyClass}`,
+            },
+        };
+    },
+    setup() {
+        const bodyClass = ref();
+        // const store = useStore();
+        // -- Mobile nav status
+        let mobileNavStatus = ref(false);
+        // FUNCTION
+        // -- Menu click
+        function onClickMenu() {
+            mobileNavStatus.value = !mobileNavStatus.value;
+            bodyClass.value = mobileNavStatus.value ? 'menu-is-open' : '';
+        }
+
+        return {
+            bodyClass,
+            mobileNavStatus,
+            onClickMenu,
         };
     },
 };
