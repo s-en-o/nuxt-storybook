@@ -1,7 +1,6 @@
 # Nuxt V2 with Storybook setup
 
--   `yarn`
--   `yarn add --dev @nuxtjs/storybook @nuxt/postcss8 css-loader@5.2.0`
+Install dependencies by running `yarn`.
 
 ## Command
 
