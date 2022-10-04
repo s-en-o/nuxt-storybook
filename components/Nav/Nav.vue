@@ -35,10 +35,10 @@
     </header>
 </template>
 
-<script>
-import { ref } from '@nuxtjs/composition-api';
+<script lang="ts">
+import { ref, defineComponent } from '@nuxtjs/composition-api';
 
-export default {
+export default defineComponent({
     props: {
         navLinks: {
             type: Array,
@@ -53,7 +53,7 @@ export default {
         };
     },
     setup() {
-        const bodyClass = ref();
+        const bodyClass = ref<string>('');
         // const store = useStore();
         // -- Mobile nav status
         let mobileNavStatus = ref(false);
@@ -70,5 +70,5 @@ export default {
             onClickMenu,
         };
     },
-};
+});
 </script>
