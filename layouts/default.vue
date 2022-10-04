@@ -11,7 +11,7 @@
             <span></span>
         </div>
 
-        <Nav />
+        <Nav :navLinks="navLinks" />
 
         <!-- ## main content
         ==================================================- -->
@@ -25,9 +25,25 @@
     <!-- end -s-pagewrap -->
 </template>
 
-<script>
-export default {
-    name: 'DefaultLayout',
-    setup() {},
-};
+<script setup>
+const navLinks = [
+    {
+        id: 2,
+        name: 'about',
+        link: '/',
+        hidden: false,
+    },
+    {
+        id: 3,
+        name: 'contact',
+        link: '/',
+        hidden: false,
+    },
+    {
+        id: 4,
+        name: 'blog',
+        link: '/',
+        hidden: false,
+    },
+];
 </script>
