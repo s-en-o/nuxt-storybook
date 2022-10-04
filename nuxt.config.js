@@ -1,3 +1,5 @@
+import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
+
 export default {
     // Target: https://go.nuxtjs.dev/config-target
     target: 'static',
@@ -44,5 +46,14 @@ export default {
 
     storybook: {
         // Options
+        stories: [
+            '~/components/**/*.stories.js',
+            '~/components/**/*.stories.ts',
+        ],
+        parameters: {
+            viewport: {
+                viewports: INITIAL_VIEWPORTS,
+            },
+        },
     },
 };
