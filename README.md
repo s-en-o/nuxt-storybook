@@ -1,9 +1,17 @@
 # Nuxt V2 with Storybook setup
 
-Install dependencies by running `yarn`.
+Install dependencies using [Yarn](https://yarnpkg.com/getting-started/install) by running `yarn`.
 
-## Command
+## Running the project
 
-Nuxt: `yarn dev`
+Nuxt:
 
-Storybook: `yarn sb`
+```sh
+yarn dev
+```
+
+Storybook:
+
+```sh
+yarn sb
+```
