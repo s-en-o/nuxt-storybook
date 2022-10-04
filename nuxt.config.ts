@@ -1,6 +1,7 @@
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
+import { NuxtConfig } from '@nuxt/types';
 
-export default {
+const config: NuxtConfig = {
     // Target: https://go.nuxtjs.dev/config-target
     target: 'static',
 
@@ -36,7 +37,11 @@ export default {
     components: [{ path: '~/components', extensions: ['vue'] }],
 
     // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-    buildModules: ['@nuxt/postcss8', '@nuxtjs/composition-api/module'],
+    buildModules: [
+        '@nuxt/postcss8',
+        '@nuxtjs/composition-api/module',
+        '@nuxt/typescript-build',
+    ],
 
     // Modules: https://go.nuxtjs.dev/config-modules
     modules: [],
@@ -57,3 +62,5 @@ export default {
         },
     },
 };
+
+export default config;
