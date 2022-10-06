@@ -36,7 +36,12 @@
 </template>
 
 <script lang="ts">
-import { ref, defineComponent } from '@nuxtjs/composition-api';
+import {
+    ref,
+    computed,
+    useMeta,
+    defineComponent,
+} from '@nuxtjs/composition-api';
 
 export default defineComponent({
     props: {
@@ -45,23 +50,23 @@ export default defineComponent({
             required: true,
         },
     },
-    head() {
-        return {
-            bodyAttrs: {
-                class: `${this.bodyClass}`,
-            },
-        };
-    },
+    head: {},
     setup() {
-        const bodyClass = ref<string>('');
-        // const store = useStore();
         // -- Mobile nav status
         let mobileNavStatus = ref(false);
+        const bodyClass = computed(() =>
+            mobileNavStatus.value ? 'menu-is-open' : ''
+        );
+        useMeta({
+            bodyAttrs: {
+                class: bodyClass.value,
+            },
+        });
         // FUNCTION
         // -- Menu click
         function onClickMenu() {
             mobileNavStatus.value = !mobileNavStatus.value;
-            bodyClass.value = mobileNavStatus.value ? 'menu-is-open' : '';
+            // bodyClass.value = mobileNavStatus.value ? 'menu-is-open' : '';
         }
 
         return {
