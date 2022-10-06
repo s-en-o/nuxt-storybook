@@ -63,7 +63,6 @@ export default defineComponent({
         // -- Menu click
         function onClickMenu() {
             mobileNavStatus.value = !mobileNavStatus.value;
-            // bodyClass.value = mobileNavStatus.value ? 'menu-is-open' : '';
         }
 
         return {
