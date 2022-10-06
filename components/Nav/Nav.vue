@@ -54,6 +54,7 @@ export default defineComponent({
     setup() {
         // -- Mobile nav status
         let mobileNavStatus = ref(false);
+        // -- Composable
         useMeta(() => ({
             bodyAttrs: {
                 class: mobileNavStatus.value ? 'menu-is-open' : '',
