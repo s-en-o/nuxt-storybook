@@ -54,14 +54,11 @@ export default defineComponent({
     setup() {
         // -- Mobile nav status
         let mobileNavStatus = ref(false);
-        const bodyClass = computed(() =>
-            mobileNavStatus.value ? 'menu-is-open' : ''
-        );
-        useMeta({
+        useMeta(() => ({
             bodyAttrs: {
-                class: bodyClass.value,
+                class: mobileNavStatus.value ? 'menu-is-open' : '',
             },
-        });
+        }));
         // FUNCTION
         // -- Menu click
         function onClickMenu() {
@@ -70,7 +67,6 @@ export default defineComponent({
         }
 
         return {
-            bodyClass,
             mobileNavStatus,
             onClickMenu,
         };
