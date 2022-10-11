@@ -21,7 +21,7 @@
                     <li>
                         <NuxtLink to="/" class="home-link">Home</NuxtLink>
                     </li>
-                    <template v-for="nav in navLinks">
+                    <template v-for="nav in navData">
                         <li v-if="!nav.hidden" :key="nav.id">
                             <NuxtLink :to="nav.link" class="smoothscroll">
                                 {{ nav.name }}
@@ -36,12 +36,7 @@
 </template>
 
 <script lang="ts">
-import {
-    ref,
-    computed,
-    useMeta,
-    defineComponent,
-} from '@nuxtjs/composition-api';
+import { ref, useMeta, defineComponent } from '@nuxtjs/composition-api';
 
 export default defineComponent({
     props: {
@@ -51,9 +46,10 @@ export default defineComponent({
         },
     },
     head: {},
-    setup() {
+    setup(props) {
         // -- Mobile nav status
         let mobileNavStatus = ref(false);
+        const navData = props.navLinks;
         // -- Composable
         useMeta(() => ({
             bodyAttrs: {
@@ -67,6 +63,7 @@ export default defineComponent({
         }
 
         return {
+            navData,
             mobileNavStatus,
             onClickMenu,
         };
