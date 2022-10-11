@@ -7,7 +7,7 @@
         "build": "nuxt build",
         "start": "nuxt start",
         "generate": "nuxt generate",
-        "sb": "nuxt storybook",
+        "sb": "nuxt-storybook",
         "lint:prettier": "prettier --check .",
         "lint": "yarn lint:prettier",
         "lintfix": "prettier --write --list-different ."
@@ -27,10 +27,13 @@
         "@nuxt/types": "^2.15.8",
         "@nuxt/typescript-build": "^2.1.0",
         "@nuxtjs/storybook": "^4.3.2",
+        "@storybook/addons": "^6.5.12",
+        "@storybook/theming": "^6.5.12",
         "css-loader": "5.2.0",
         "eslint-config-prettier": "^8.3.0",
         "postcss": "8",
-        "prettier": "^2.5.1"
+        "prettier": "^2.5.1",
+        "storybook-dark-mode": "^1.1.2"
     },
     "engines": {
         "node": ">=14.x.x <=16.x.x"
